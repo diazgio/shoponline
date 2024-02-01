@@ -11,21 +11,55 @@
 #     <%= t("hello") %>
 #
 # To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      product: Product
+    attributes:
+      product:
+        title: 'Title'
+        description: 'Description'
+        price: 'Price'
+        photo: 'Photo'
+    errors:
+      models:
+        product:
+          attributes:
+            title:
+              blank: 'Title cannot be empty'
+            description:
+              blank: 'Description cannot be empty'
+            price:
+              blank: 'Price cannot be empty'
+  common:
+    confirm: 'Are you sure?'
+  products:
+    edit:
+      title: 'Edit product'
+    new:
+      title: 'Add product'
+    form:
+      title_placeholder: 'What do you want to sell?'
+      description_placeholder: 'Could you describe your product?'
+      price_placeholder: 'For how much?'
+      category_placeholder: 'In what category could fit better?'
+      submit: 'Sell it now!'
+    index:
+      title: 'Products:'
+      all: 'All'
+      min_price: 'Min price'
+      max_price: 'Max price'
+      query_text: 'What do you want to search?'
+      expensive: 'Expensive first'
+      cheapest: 'Cheaper first'
+      newest: 'Recently added'
+    show:
+      edit: 'Edit product'
+      delete: 'Delete product'
+      view_more_products: 'View more products by %{username}'
+    create:
+      created: 'Your product has been successfully created'
+    update:
+      updated: 'Your product has been successfully updated'
+    destroy:
+      destroyed: 'Your product has been successfully destroyed'

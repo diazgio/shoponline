@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @product %>
+
+<div>
+  <%= link_to "Edit this product", edit_product_path(@product) %> |
+  <%= link_to "Back to products", products_path %>
+  <%= link_to "Destroy this product", product_path(@product), data: {
+    turbo_confirm: t('common.confirm'),
+    turbo_method: :delete
+  } %>
+</div>

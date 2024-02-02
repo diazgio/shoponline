@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @categories = Category.order(name: :asc)
-    @products = Product.with_attached_photo.order(created_at: :desc)
+    @products = Product.with_attached_photo
     if params[:category_id]
       @products = @products.where(category_id: params[:category_id].to_i)
     end
@@ -16,6 +16,10 @@ class ProductsController < ApplicationController
     if params[:query_text].present?
       @products = @products.search_full_text(params[:query_text])
     end
+    
+    order_by = Product::ORDER_BY.fetch(params[:order_by]&.to_sym, Product::ORDER_BY[:newest])
+
+    @products = @products.order(order_by)
   end
 
   def show

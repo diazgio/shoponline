@@ -25,7 +25,7 @@ RSpec.describe CategoriesController, type: :controller do
 
       it "redirects to the created category" do
         post :create, params: { category: { name: "New Category" } }
-        expect(response).to redirect_to(category_url(Category.last))
+        expect(response).to redirect_to(categories_url)
       end
 
       it "sets a success notice" do
@@ -65,7 +65,7 @@ RSpec.describe CategoriesController, type: :controller do
 
       it "redirects to the updated category" do
         patch :update, params: { id: category.id, category: { name: "Updated Category" } }
-        expect(response).to redirect_to(category_url(category))
+        expect(response).to redirect_to(categories_url)
       end
     end
 

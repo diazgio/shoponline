@@ -32,6 +32,10 @@
   </div>
 
   <div>
+    <%= form.collection_select :category_id, Category.all.order(name: :asc), :id, :name, { prompt: t(".category_placeholder") } %>
+  </div>
+
+  <div>
     <%= form.label :photo %>
     <%= form.file_field :photo %>
   </div>

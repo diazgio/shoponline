@@ -1,14 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<%= turbo_frame_tag 'categories' do %>
+  <h2><%= t('.title')%></h2>
 
-<h1>Products</h1>
-
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
+  <%= form_with url: products_path, method: :get do |form| %>
+    <%= form.text_field :query_text, placeholder: t('.query_text'), onChange: 'this.form.requestSubmit()', value: params[:query_text] %>
+    <%= form.number_field :min_price, placeholder: t('.min_price'), onChange: 'this.form.requestSubmit()', value: params[:min_price] %>
+    <%= form.number_field :max_price, placeholder: t('.max_price'),onChange: 'this.form.requestSubmit()', value: params[:max_price] %>
   <% end %>
-</div>
 
-<%= link_to "New product", new_product_path %>
+  <%= link_to t('.all'), products_path %>
+
+  <%= render partial: 'category', collection: @categories %>
+
+  <%= render partial: 'product', collection: @products %>
+
+<% end %>

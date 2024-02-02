@@ -7,3 +7,25 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Product.destroy_all
+Category.destroy_all
+
+categories = ['Electrónicos', 'Ropa', 'Hogar', 'Juguetes', 'Deportes']
+
+categories.each do |category_name|
+  Category.create(name: category_name)
+end
+
+10.times do
+  product = Product.create(
+    title: Faker::Commerce.product_name,
+    description: Faker::Lorem.paragraph,
+    price: Faker::Commerce.price,
+    stock: Faker::Number.between(from: 1, to: 100),
+    category: Category.all.sample
+  )
+  
+  product.photo.attach(io: URI.open(Faker::LoremFlickr.image), filename: 'product_image.jpg')
+
+  puts "Producto creado: #{product.title}"
+end

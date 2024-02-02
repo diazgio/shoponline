@@ -2,7 +2,20 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
   def index
-    @products = Product.all.with_attached_photo.order(created_at: :desc)
+    @categories = Category.order(name: :asc)
+    @products = Product.with_attached_photo.order(created_at: :desc)
+    if params[:category_id]
+      @products = @products.where(category_id: params[:category_id].to_i)
+    end
+    if params[:min_price].present?
+      @products = @products.where("price >= ?", params[:min_price])
+    end
+    if params[:max_price].present?
+      @products = @products.where("price <= ?", params[:max_price])
+    end
+    if params[:query_text].present?
+      @products = @products.search_full_text(params[:query_text])
+    end
   end
 
   def show
@@ -51,6 +64,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:title, :description, :price, :stock, :photo)
+      params.require(:product).permit(:title, :description, :price, :stock, :photo, :category_id)
     end
 end

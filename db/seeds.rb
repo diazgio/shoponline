@@ -10,13 +10,13 @@
 Product.destroy_all
 Category.destroy_all
 
-categories = ['Electrónicos', 'Ropa', 'Hogar', 'Juguetes', 'Deportes']
+categories = ['Electrónicos', 'Ropa', 'Hogar', 'Juguetes', 'Deportes', 'Libros', 'Salud', 'Belleza', 'Automotriz', 'Mascotas']
 
 categories.each do |category_name|
   Category.create(name: category_name)
 end
 
-10.times do
+120.times do
   product = Product.create(
     title: Faker::Commerce.product_name,
     description: Faker::Lorem.paragraph,

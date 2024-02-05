@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  skip_before_action :protect_pages, only: [:index, :show]
   before_action :set_product, only: %i[ show edit update destroy ]
 
   def index

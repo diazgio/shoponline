@@ -10,19 +10,28 @@
 Product.destroy_all
 Category.destroy_all
 
+# create 4 users to test the app
+User.create(username: 'Testermaniac1', email: 'tester1@test.com', password: '123456')
+User.create(username: 'Testermaniac2', email: 'tester2@test.com', password: '123456')
+User.create(username: 'Testermaniac3', email: 'tester3@test.com', password: '123456')
+User.create(username: 'Testermaniac4', email: 'tester4@test.com', password: '123456')
+
 categories = ['Electrónicos', 'Ropa', 'Hogar', 'Juguetes', 'Deportes', 'Libros', 'Salud', 'Belleza', 'Automotriz', 'Mascotas']
 
 categories.each do |category_name|
   Category.create(name: category_name)
 end
 
-120.times do
+users = User.all
+
+50.times do
   product = Product.create(
     title: Faker::Commerce.product_name,
     description: Faker::Lorem.paragraph,
     price: Faker::Commerce.price,
     stock: Faker::Number.between(from: 1, to: 100),
-    category: Category.all.sample
+    category: Category.all.sample,
+    user: users.sample
   )
   
   product.photo.attach(io: URI.open(Faker::LoremFlickr.image), filename: 'product_image.jpg')

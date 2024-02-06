@@ -2,13 +2,21 @@
 
 <%= render @product %>
 
-<div>
-  <%= link_to t('.edit'), edit_product_path(@product) if @product.owner? %>
-  <%= link_to t('.back'), products_path %>
-  <%= link_to "Destroy this product", product_path(@product), data: {
-    turbo_confirm: t('common.confirm'),
-    turbo_method: :delete
-  }if @product.owner? %>
+<%= link_to t('.edit'), edit_product_path(@product) if @product.owner? %>
+<%= link_to t('.back'), products_path %>
+<%= link_to "Destroy this product", product_path(@product), data: {
+  turbo_confirm: t('common.confirm'),
+  turbo_method: :delete
+}if @product.owner? %>
 
-  <%= link_to t('.view_more_products', username: @product.user.username), user_path(@product.user.id) %>
-</div>
+<%= link_to t('.view_more_products', username: @product.user.username), user_path(@product.user.id) %>
+
+<% if @product.favorite %>
+  <%= link_to '💔', favorite_path(@product.id), data: {
+    turbo_method: :delete
+  } %>
+<% else %>
+  <%= link_to '❤️', favorites_path(product_id: @product.id), data: {
+    turbo_method: :post
+  } %>
+<% end %>

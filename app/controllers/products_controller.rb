@@ -70,7 +70,8 @@ class ProductsController < ApplicationController
         :max_price,
         :query_text,
         :order_by,
-        :page
+        :page,
+        :favorites
       )
     end
 end

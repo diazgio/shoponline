@@ -3,6 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by!(id: params[:id])
-    @pagy, @products = pagy_countless(FindProducts.new.call({ user_id: @user.id }).load_async, items: 12)
+    @pagy, @products = pagy_countless(FindProducts.new.call({ user_id: @user.id }), items: 12)
   end
 end

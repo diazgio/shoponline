@@ -16,8 +16,17 @@ class User < ApplicationRecord
 
   validates :password, length: { minimum: 6 }
   has_many :products, dependent: :destroy
+  enum role: [:user , :company, :admin]
 
   before_save :downcase_attributes
+
+  ROLES = %w[user company admin]
+
+  ROLES.each do |role|
+    define_method "#{role}?" do
+      self.role == role
+    end
+  end
 
   private
 

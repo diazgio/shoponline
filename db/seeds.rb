@@ -11,10 +11,10 @@ Product.destroy_all
 Category.destroy_all
 
 # create 4 users to test the app
-User.create(username: 'Testermaniac1', email: 'tester1@test.com', password: '123456')
-User.create(username: 'Testermaniac2', email: 'tester2@test.com', password: '123456')
-User.create(username: 'Testermaniac3', email: 'tester3@test.com', password: '123456')
-User.create(username: 'Testermaniac4', email: 'tester4@test.com', password: '123456')
+User.create(username: 'Testermaniac1', email: 'tester1@test.com', password: '123456', role: 2)
+User.create(username: 'Testermaniac2', email: 'tester2@test.com', password: '123456', role: 0)
+User.create(username: 'Testermaniac3', email: 'tester3@test.com', password: '123456', role: 0)
+User.create(username: 'Testermaniac4', email: 'tester4@test.com', password: '123456', role: 0)
 
 categories = ['Electrónicos', 'Ropa', 'Hogar', 'Juguetes', 'Deportes', 'Libros', 'Salud', 'Belleza', 'Automotriz', 'Mascotas']
 

@@ -20,6 +20,6 @@ class Product < ApplicationRecord
   validates :price, presence: true
 
   def owner?
-    user_id == Current.user.id
+    user_id == Current.user&.id
   end
 end

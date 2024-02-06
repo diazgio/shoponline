@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
 
   private
     def set_product
-      @product = Product.find(params[:id])
+      @product ||= Product.find(params[:id])
     end
 
     def product_params
@@ -71,7 +71,8 @@ class ProductsController < ApplicationController
         :query_text,
         :order_by,
         :page,
-        :favorites
+        :favorites,
+        :user_id
       )
     end
 end

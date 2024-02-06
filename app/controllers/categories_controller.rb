@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :authorize!, except: %i[ index ]
   before_action :set_category, only: %i[ edit update destroy ]
 
   def index

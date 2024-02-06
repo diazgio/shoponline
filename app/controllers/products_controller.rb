@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    authorize! @product
   end
 
   def create
@@ -30,6 +31,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    authorize! @product
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to product_url(@product), notice: t('.updated') }
@@ -67,7 +69,8 @@ class ProductsController < ApplicationController
         :min_price,
         :max_price,
         :query_text,
-        :order_by
+        :order_by,
+        :page
       )
     end
 end

@@ -4,29 +4,31 @@ en:
   activerecord:
     models:
       product: Product
+      user: User
+      category: Category
     attributes:
       product:
         title: 'Title'
         description: 'Description'
         price: 'Price'
         photo: 'Photo'
-    errors:
-      models:
-        product:
-          attributes:
-            title:
-              blank: 'Title cannot be empty'
-            description:
-              blank: 'Description cannot be empty'
-            price:
-              blank: 'Price cannot be empty'
+      user:
+        email: 'Email'
+        username: 'Username'
+        password: 'Password'
+      category:
+        name: 'Name'
   common:
     confirm: 'Are you sure?'
     back: 'Go back'
     not_logged_in: 'You have to login or create an account'
+    not_authorized: 'You don not have permissions for this action'
   shared:
     header:
       add: 'Add product'
+      login: 'Login'
+      register: 'Register'
+      logout: 'Logout'
   authentication:
     users:
       create:
@@ -35,6 +37,8 @@ en:
       create:
         created: 'Welcome!'
         failed: 'Invalid login!'
+      destroy:
+        destroyed: 'Session ended. Bye!'
   products:
     edit:
       title: 'Edit product'

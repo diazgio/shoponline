@@ -3,10 +3,10 @@
 <%= render @product %>
 
 <div>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
+  <%= link_to t('.edit'), edit_product_path(@product) if @product.user == Current.user %>
+  <%= link_to t('.back'), products_path %>
   <%= link_to "Destroy this product", product_path(@product), data: {
     turbo_confirm: t('common.confirm'),
     turbo_method: :delete
-  } %>
+  }if @product.user == Current.user %>
 </div>

@@ -47,6 +47,7 @@ gem "bootsnap", require: false
 gem "pg_search", "~> 2.3"
 gem "pagy"
 gem "tailwindcss-rails", "~> 2.3"
+gem "view_component", "~> 3.10"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

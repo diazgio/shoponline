@@ -34,6 +34,7 @@ class ProductsController < ApplicationController
     authorize! @product
     respond_to do |format|
       if @product.update(product_params)
+        notify_all_users
         format.html { redirect_to product_url(@product), notice: t('.updated') }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -73,6 +74,15 @@ class ProductsController < ApplicationController
         :page,
         :favorites,
         :user_id
+      )
+    end
+
+    def notify_all_users
+      ActionCable.server.broadcast(
+        "product_#{@product.id}",
+        {
+          action: "updated"
+        }
       )
     end
 end

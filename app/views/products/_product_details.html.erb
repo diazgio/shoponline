@@ -1,0 +1,13 @@
+<div id="<%= dom_id(product) %>">
+  <%= image_tag product.photo, width: 200 if product.photo.attached? %>
+  
+  <span class="text-teal-500 ml-2"><strong><%= product.category.name %></strong></span>
+
+  <h1 class='title'><%= product.title %></h1>
+
+  <p class='description'><%= product.description %></p>
+
+  <p class='price'><%= product.price %>$</p>
+
+  <p class='stock'><%= product.stock %> Unidades</p>
+</div>

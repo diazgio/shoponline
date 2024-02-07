@@ -57,6 +57,7 @@ group :development, :test do
   gem "factory_bot_rails"
   gem 'simplecov'
   gem 'faker'
+  gem "letter_opener", "~> 1.8"
 end
 
 group :development do

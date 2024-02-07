@@ -50,6 +50,7 @@ en:
       title_placeholder: 'What do you want to sell?'
       description_placeholder: 'Could you describe your product?'
       price_placeholder: 'For how much?'
+      stock_placeholder: 'How many do you have?'
       category_placeholder: 'In what category could fit better?'
       submit: 'Sell it now!'
     index:

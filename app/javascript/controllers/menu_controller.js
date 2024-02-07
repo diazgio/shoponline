@@ -5,5 +5,6 @@ export default class extends Controller {
 
   toggle() {
     this.itemsTarget.classList.toggle('translate-x-full')
+    this.itemsTarget.classList.toggle('hidden')
   }
 }

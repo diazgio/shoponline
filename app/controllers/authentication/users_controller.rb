@@ -8,6 +8,7 @@ class Authentication::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.country = FetchCountryService.new(request.remote_ip).perform
+    @user.role = 2
     if @user.save
       UserMailer.with(user: @user).welcome.deliver_later
       session[:user_id] = @user.id # auto login for cookie based session

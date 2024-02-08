@@ -3,12 +3,12 @@ es:
   meta_title: 'Compra y vende productos de segunda mano'
   activerecord:
     models:
-      product: Product
+      product: Producto
       user: Usuario
       category: Categoría
     attributes:
       product:
-        title: 'Titulo'
+        title: 'Título'
         description: 'Descripción'
         price: 'Precio'
         photo: 'Foto'

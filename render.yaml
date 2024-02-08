@@ -23,7 +23,9 @@ services:
 
   - type: worker
     name: sidekiq
-    command: "bundle exec sidekiq -c 5"
+    runtime: ruby
+    buildCommand: bundle install; bundle exec rake assets:precompile; bundle exec rake assets:clean;
+    startCommand: bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-development}
     envVars:
       - key: DATABASE_URL
         fromDatabase:

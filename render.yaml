@@ -13,9 +13,7 @@ services:
     startCommand: "./bin/rails server"
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: shoponline
-          property: connectionString
+        value: postgres://shoponline:triT0sQ4JRS5a5KCVq4BY3DraMEuEb88@dpg-cn2j3s8cmk4c73dhipc0-a.oregon-postgres.render.com/shoponline_s91g
       - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY

@@ -10,7 +10,7 @@ services:
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
-    startCommand: "./bin/rails server"
+    startCommand: "./bin/rails db:create && ./bin/rails db:migrate && ./bin/rails server"
     envVars:
       - key: DATABASE_URL
         value: postgres://shoponline:triT0sQ4JRS5a5KCVq4BY3DraMEuEb88@dpg-cn2j3s8cmk4c73dhipc0-a.oregon-postgres.render.com/shoponline_s91g

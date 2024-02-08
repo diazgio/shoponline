@@ -1,7 +1,7 @@
 databases:
-  - name: postgres
-    databaseName: postgres
-    user: postgres
+  - name: shoponline
+    databaseName: shoponline
+    user: shoponline
     plan: free
 
 services:
@@ -14,12 +14,12 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: postgres
+          name: shoponline
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY
-        value: 2 # sensible default
+        value: 2
 
   - type: worker
     name: sidekiq

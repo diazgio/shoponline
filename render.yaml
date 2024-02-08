@@ -13,6 +13,7 @@ services:
     startCommand: "./bin/rails server"
     envVars:
       - key: DATABASE_URL
+        value: <%= ENV['DATABASE_URL'] %>
         fromDatabase:
           name: shoponline
           property: connectionString
@@ -28,6 +29,7 @@ services:
     startCommand: bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-development}
     envVars:
       - key: DATABASE_URL
+        value: <%= ENV['DATABASE_URL'] %>
         fromDatabase:
           name: shoponline
           property: connectionString

@@ -81,5 +81,5 @@ production:
   <<: *default
   url: <%= ENV["DATABASE_URL"] %>
   database: shoponline_production
-  username: shoponline
+  username: postgres
   password: <%= ENV["SHOPONLINE_DATABASE_PASSWORD"] %>

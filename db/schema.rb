@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_07_163333) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "stock", null: false
-    t.uuid "category_id", null: false
+    t.uuid "category_id"
     t.uuid "user_id", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"

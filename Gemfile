@@ -59,6 +59,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'faker'
   gem "letter_opener", "~> 1.8"
+  gem 'rails-controller-testing'
 end
 
 group :development do

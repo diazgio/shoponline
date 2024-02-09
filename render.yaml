@@ -18,7 +18,16 @@ services:
         sync: false
       - key: WEB_CONCURRENCY
         value: 2
-
+      - key: REDIS_URL
+        fromService:
+          name: sidekiq-redis
+          type: redis
+          property: connectionString
+  - type: redis
+    name: sidekiq-redis
+    region: ohio
+    maxmemoryPolicy: noeviction
+    ipAllowList: [] # only allow internal connections
   - type: worker
     name: sidekiq
     runtime: ruby
@@ -31,3 +40,8 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+      - key: REDIS_URL
+        fromService:
+          name: sidekiq-redis
+          type: redis
+          property: connectionString

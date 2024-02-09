@@ -33,7 +33,7 @@ services:
     startCommand: "./bin/rails db:create && ./bin/rails db:migrate && ./bin/rails server && bin/rails tailwindcss:watch"
     envVars:
       - key: DATABASE_URL
-        value: postgres://shoponline:ue7MGkVXqbe0eAuG3xwEB9npTENwZwDc@dpg-cn35kt2cn0vc738lmo3g-a/shoponline_nsbl
+        value: postgres://shoponline:ue7MGkVXqbe0eAuG3xwEB9npTENwZwDc@dpg-cn35kt2cn0vc738lmo3g-a.oregon-postgres.render.com/shoponline_nsbl
       - key: REDIS_URL
         fromService:
           type: redis

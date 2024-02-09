@@ -6,7 +6,7 @@ databases:
 
   services:
   - type: redis
-    name: shoponline-sidekiq-redis
+    name: sidekiq-redis
     region: ohio
     maxmemoryPolicy: noeviction
     ipAllowList: [] # only allow internal connections
@@ -21,7 +21,7 @@ databases:
       - key: REDIS_URL
         fromService:
           type: redis
-          name: shoponline-sidekiq-redis
+          name: sidekiq-redis
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false

@@ -4,7 +4,7 @@ databases:
     user: shoponline
     plan: free
 
-  services:
+services:
   - type: redis
     name: sidekiq-redis
     region: ohio

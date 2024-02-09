@@ -12,7 +12,7 @@ databases:
     ipAllowList: [] # only allow internal connections
 
   - type: worker
-    name: shoponline-sidekiq-redis
+    name: sidekiq-redis
     runtime: ruby
     region: ohio
     buildCommand: bundle install

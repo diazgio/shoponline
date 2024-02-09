@@ -8,7 +8,6 @@ class Authentication::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.country = 'PE'
-    @user.role = 2
     # @user.country = FetchCountryService.new(request.remote_ip).perform
     if @user.save
       # UserMailer.with(user: @user).welcome.deliver_later

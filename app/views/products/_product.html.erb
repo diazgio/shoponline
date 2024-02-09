@@ -1,16 +1,30 @@
-<%= link_to product_path(product), class: 'product bg-white mb-2 rounded sm:w-[calc(33.33333%_-_.5rem)] lg:w-[calc(25%_-_.5rem)]', 'data-turbo-frame': '_top' do %>
-    <%= image_tag product.photo.attached? ? product.photo : 'placeholder.jpg', class: "w-full h-60 object-cover" %>
-    <span class="text-teal-500 ml-2"><strong><%= product.category.name %></strong></span>
-    <div class="m-2">
-        <div class="flex gap-2 items-center">
-            <span class="font-bold text-xl"><%= product.price %>$</span>
-            <h2>
+<div class="block sm:w-[calc(33.33333%_-_.5rem)] lg:w-[calc(25%_-_.5rem)] rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] mb-3">
+    <%= link_to product_path(product), 'data-turbo-frame': '_top' do %>
+      <% if product.photo.attached? %>
+        <%= image_tag product.photo, class: 'rounded-t-lg w-full h-2/4' %>
+      <% else %>
+        <%= image_tag 'placeholder.png', class: 'rounded-t w-full h-1/4' %>
+      <% end %>
+    <% end %>
+    <div class="p-6">
+        <h5 class="mb-2 text-xl font-medium leading-tight text-teal-500"><%= product.category.name %></h5>
+        <div class="flex">
+            <h2 class="mb-2 text-xl font-medium leading-tight text-neutral-800">
                 <%= product.title %>
-                <% if product.favorite%>
-                    <span class="star">★</span>
-                <% end %>
             </h2>
+            <% if product.favorite%>
+                <span class="star">★</span>
+            <% end %>
         </div>
-        <p class="text-gray-500 text-sm mt-2"><%= product.description %></p>
+        <p class="mb-4 text-base text-neutral-800 dark:text-neutral-200">
+            <%= product.price %> $
+        </p>
+        <p class="mb-4 text-base text-neutral-800 dark:text-neutral-200">
+            <%= product.stock %> Unidades
+        </p>
+        <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+            <%= product.description %>
+        </p>
+        <%= link_to t('.see_more'), product_path(product), class: 'inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase' %>
     </div>
-<% end %>
+</div>

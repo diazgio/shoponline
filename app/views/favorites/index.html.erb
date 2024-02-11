@@ -1,3 +1,5 @@
-<h1><%= t('.title') %></h1>
+<div class="py-3">
+  <h1 class="text-teal-500 text-l sm:text-xl font-extrabold mb-3"><%= t('.title') %></h1>
 
-<%= turbo_frame_tag :products, src: products_path(favorites: true) %>
+  <%= turbo_frame_tag :products, src: products_path(favorites: true) %>
+</div>

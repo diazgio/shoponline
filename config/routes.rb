@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: :show, path: '/user'
   resources :categories, except: %i[ show ]
   resources :products, path: '/'
+  resources :transactions
   
   get "up" => "rails/health#show", as: :rails_health_check
 end

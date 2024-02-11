@@ -1,4 +1,10 @@
-<h1><%= t('.title') %></h1>
-
-<%= render partial: 'category', collection: @categories %>
-<%= link_to t('.new'), new_category_path %>
+<div class="flex flex-col">
+  <div class="flex items-center">
+    <h1 class="text-teal-500 font-bold my-7 bg-white p-3 w-max rounded-xl sm:text-2xl"><%= t('.title') %></h1>
+    <%= link_to t('.new'), new_category_path, class: 'p-2 bg-teal-400 text-white font-bold rounded-xl cursor-pointer ml-6' %>
+  </div>
+  <div class="flex flex-wrap gap-6">
+    <%= render partial: 'category', collection: @categories %>
+  </div>
+  
+</div>

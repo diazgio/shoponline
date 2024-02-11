@@ -1,15 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render partial: 'products/product_details', locals: { product: @product } %>
-
-<%= link_to t('.edit'), edit_product_path(@product) if @product.owner? %>
-<%= link_to t('.back'), products_path %>
-<%= link_to "Destroy this product", product_path(@product), data: {
-  turbo_confirm: t('common.confirm'),
-  turbo_method: :delete
-}if @product.owner? %>
-
-<%= link_to t('.view_more_products', username: @product.user.username), user_path(@product.user.id) %>
-
-<%= render partial: 'favorite', locals: { product: @product } %>
-<%= turbo_stream_from @product %>
+<div class="w-11/12 sm:w-2/5 mx-auto flex flex-col justify-center bg-white rounded-xl mt-8">
+  <%= render partial: 'products/product_details', locals: { product: @product } %>
+  <div class="flex flex-wrap gap-3 m-2 items-center justify-center">
+    <%= link_to t('.edit'), edit_product_path(@product),
+      class: 'p-2 border-2 border-teal-400 bg-white text-teal-500 rounded-xl hover:bg-teal-400 hover:text-white hover:border-white' if @product.owner? %>
+    <%= link_to t('.back'), products_path, class: 'p-2 border-2 border-teal-400 bg-white text-teal-500 rounded-xl hover:bg-teal-400 hover:text-white hover:border-white' %>
+    <%= link_to t('.delete'), product_path(@product), data: {
+      turbo_confirm: t('common.confirm'),
+      turbo_method: :delete
+    }, class: 'p-2 border-2 border-red-400 bg-white text-red-500 rounded-xl hover:bg-red-400 hover:text-white hover:border-white'if @product.owner? %>
+    <%= link_to t('.view_more_products', username: @product.user.username),
+      user_path(@product.user.id), class: 'text-teal-600 font-bold' %>
+  </div>
+  <%= turbo_stream_from @product %>
+</div>

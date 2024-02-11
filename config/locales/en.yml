@@ -33,9 +33,15 @@ en:
       favorites: 'My favorites'
   authentication:
     users:
+      new:
+        title: 'Register'
       create:
         created: 'Your account has been created!'
     sessions:
+      new:
+        title: 'Login'
+        form: 'Email or username'
+        form_password: 'Password'
       create:
         created: 'Welcome!'
         failed: 'Invalid login!'
@@ -64,9 +70,15 @@ en:
       newest: 'Recently added'
       see_more: 'See more'
     show:
-      edit: 'Edit product'
-      delete: 'Delete product'
+      edit: 'Edit'
+      delete: 'Delete'
       view_more_products: 'View more products by %{username}'
+    product:
+      price: 'Price'
+      stock: 'Stock'
+    product_details:
+      price: 'Price'
+      stock: 'Stock'
     create:
       created: 'Your product has been successfully created'
     update:
@@ -78,7 +90,7 @@ en:
       edit: 'Edit'
       delete: 'Delete'
     index:
-      title: 'Categories'
+      title: ' - Categories - '
       new: 'Add category'
     edit:
       title: 'Edit category'
@@ -90,6 +102,10 @@ en:
       destroyed: 'Your category has been successfully destroyed'
     new:
       title: 'New category'
+      back: 'Back to categories'
+    form:
+      name: 'Category name'
+      
   favorites:
     index:
       title: 'My favorites'

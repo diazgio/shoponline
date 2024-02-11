@@ -33,9 +33,15 @@ es:
       favorites: 'Mis favoritos'
   authentication:
     users:
+      new:
+        title: 'Registro'
       create:
         created: 'Tu cuenta se ha creado!'
     sessions:
+      new:
+        title: 'Accede a tu cuenta'
+        form: 'Correo electrónico o usuario'
+        form_password: 'Contraseña'
       create:
         created: 'Bienvenido!'
         failed: 'Login inválido!'
@@ -64,9 +70,15 @@ es:
       newest: 'Añadidos recientemente'
       see_more: 'Ver más'
     show:
-      edit: 'Editar producto'
-      delete: 'Borrar producto'
+      edit: 'Editar'
+      delete: 'Eliminar'
       view_more_products: 'Ver más productos de %{username}'
+    product:
+      price: 'Precio'
+      stock: 'Stock'
+    product_details:
+      price: 'Precio'
+      stock: 'Stock'
     create:
       created: 'Tu producto se ha creado correctamente'
     update:
@@ -78,7 +90,7 @@ es:
       edit: 'Editar'
       delete: 'Borrar'
     index:
-      title: 'Categorías'
+      title: ' - Categorías - '
       new: 'Añadir categoría'
     edit:
       title: 'Editar categoría'
@@ -90,10 +102,13 @@ es:
       destroyed: 'Tu categoría se ha eliminado correctamente'
     new:
       title: 'Añadir categoría'
+      back: 'Volver a categorías'
+    form:
+      name: 'Nombre de la categoría'
   favorites:
     index:
       title: 'Mis favoritos'
   user_mailer:
     welcome:
-      subject: 'Bienvenido a Vendelo'
+      subject: 'Bienvenido a Mi tienda'
       welcome_message: 'Hey %{username}, bienvenid@ a Mi Tienda. Esperemos que vendas un montón!'

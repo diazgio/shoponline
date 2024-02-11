@@ -1,15 +1,20 @@
-<%= form_with(url: sessions_path) do |form| %>
+<div class="flex flex-col justify-center items-center mt-8 border-gray-300 bg-white w-11/12 sm:w-2/5 mx-auto rounded-xl py-14">
   <div>
-    <%= form.label :login %>
-    <%= form.text_field :login, required: true %>
+    <h1 class="mb-5 text-teal-500 font-bold text-xl"> - <%= t('.title') %> - </h1>
   </div>
-
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password, required: true %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+  <%= form_with(url: sessions_path, class:'flex flex-col justify-center items-center') do |form| %>
+    <div class="flex flex-col justify-center items-start my-2">
+      <%= form.label :login, t('.form') %>
+      <%= form.text_field :login, required: true %>
+    </div>
+  
+    <div class="flex flex-col justify-center items-start my-2">
+      <%= form.label :password, t('.form_password') %>
+      <%= form.password_field :password, required: true %>
+    </div>
+  
+    <div class="mt-4 p-2 bg-teal-400 text-white font-bold rounded-xl cursor-pointer">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

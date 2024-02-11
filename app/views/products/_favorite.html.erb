@@ -1,5 +1,6 @@
-<div id="favorite">
+<div id="favorite" class="ml-3">
   <% if product.favorite %>
+    <span class="star">★</span>
     <%= link_to '💔', favorite_path(product.id), data: {
       turbo_method: :delete
     } %>

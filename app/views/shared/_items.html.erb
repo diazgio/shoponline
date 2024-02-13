@@ -1,7 +1,7 @@
 <%= link_to t('shared.header.items.add'), new_product_path, class: "mx-2 text-teal-500 font-bold", data: { turbo_frame: "modal" } if Current.user %>
 <%= link_to t('shared.header.items.favorites'), favorites_path, class: "mx-2 text-teal-500 font-bold" if Current.user %>
 <%= link_to t('shared.header.items.my_purchases'), transactions_path, class: "mx-2 text-teal-500 font-bold" if Current.user&.is_buyer? %>
-<%= link_to t('shared.header.items.my_sales'), seller_transactions_path, class: "mx-2 text-teal-500 font-bold" if Current.user&.is_buyer? %>
+<%= link_to t('shared.header.items.my_sales'), seller_transactions_path, class: "mx-2 text-teal-500 font-bold" if Current.user&.is_seller? %>
 <%= link_to t('shared.header.items.categories'), categories_path, class: "mx-2 text-teal-500 font-bold" if Current.user&.admin? %>
 <%= link_to t('shared.header.items.login'), new_session_path, class: "mx-2 text-teal-500 font-bold" unless Current.user %>
 <%= link_to t('shared.header.items.register'), new_user_path, class: "mx-2 text-teal-500 font-bold" unless Current.user %>

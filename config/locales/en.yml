@@ -127,6 +127,21 @@ en:
   transactions:
     index:
       title: 'My transactions'
+    show:
+      title: 'Purchase details'
+      buyer_username: 'Buyer'
+      seller_username: 'Seller'
+      delivery_address: 'Delivery address'
+      product_title: 'Product'
+      price_per_unit: 'Price per unit'
+      stock: 'Stock'
+      description: 'Description'
+      quantity: 'Quantity'
+      total: 'Total'
+      billing_status: 'Status'
+      created_at: 'Purchase date'
+      receipt: 'Receipt'
+      contact_us: 'If something happened with your purchase, contact us!'
     new:
       title: 'New Purchase'
     form:

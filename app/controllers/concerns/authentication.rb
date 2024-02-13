@@ -14,5 +14,9 @@ module Authentication
     def protect_pages
       redirect_to new_session_path, alert: t('common.not_logged_in') unless Current.user
     end
+
+    def authorize_for_transaction_page
+      redirect_to root_path, alert: t('common.not_authorized') unless Current.user&.can_access_transaction_page?
+    end
   end
 end

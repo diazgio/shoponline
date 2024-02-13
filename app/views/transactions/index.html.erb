@@ -12,6 +12,7 @@
               <th scope="col" class="px-6 py-4">Product Title</th>
               <th scope="col" class="px-6 py-4">Price</th>
               <th scope="col" class="px-6 py-4">Quantity</th>
+              <th scope="col" class="px-6 py-4">Status</th>
               <th scope="col" class="px-6 py-4">Edit</th>
               <th scope="col" class="px-6 py-4">Show</th>
             </tr>
@@ -24,6 +25,7 @@
                 <td class="whitespace-nowrap px-6 py-4"><%= transaction.product.title %></td>
                 <td class="whitespace-nowrap px-6 py-4"><%= transaction.product.price %></td>
                 <td class="whitespace-nowrap px-6 py-4"><%= transaction.quantity %></td>
+                <td class="whitespace-nowrap px-6 py-4"><%= transaction.billing_status %></td>
                 <td class="whitespace-nowrap px-6 py-4"><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
                 <td class="whitespace-nowrap px-6 py-4"><%= link_to 'Show', transaction_path(transaction) %></td>
               </tr>

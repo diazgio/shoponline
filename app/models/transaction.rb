@@ -10,4 +10,12 @@ class Transaction < ApplicationRecord
   def total
     product.price * quantity
   end
+
+  def format_created_at
+    created_at.strftime('%d-%m-%y %H:%M:%S')
+  end
+
+  def seller?
+    seller_id == Current.user.id
+  end
 end

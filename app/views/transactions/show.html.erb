@@ -1,0 +1,42 @@
+<div class="w-11/12 sm:w-3/5 mx-auto flex flex-col justify-center bg-white rounded-xl mt-8">
+  <h1 class="w-max mx-auto text-xl lg:text-2xl font-bold text-teal-500"><%= t('.title') %></h1>
+  <div class="w-full flex justify-center items-center h-full">
+    <div class="w-1/2 rounded-xl h-full">
+      <% if @transaction.product.photo.attached? %>
+        <%= image_tag @transaction.product.photo, class: 'rounded-t-xl w-full lg:w-9/12 mx-auto h-2/4 border-b-2 border-gray-500' %>
+      <% else %>
+        <%= image_tag 'placeholder.jpg', class: 'rounded-t-xl w-full h-2/4' %>
+      <% end %>
+      <p class="text-black font-bold"><%= t('.product_title') %>: <%= @transaction.product.title %></p>
+      <p class="text-black font-bold"><%= t('.price_per_unit') %>: <%= @transaction.product.price %> $</p>
+      <p class="text-black font-bold"><%= t('.stock') %>: <%= @transaction.product.stock %></p>
+      <p class="text-black font-bold"><%= t('.description') %>: <%= @transaction.product.description %> $</p>
+    </div>
+    <div class="w-1/2 rounded-xl h-5/6 border-2">
+      <p class="text-black  font-bold"><%= t('.status') %>: <%= @transaction.billing_status %></p>
+      <p class="text-black font-bold"><%= t('.buyer_username') %>: <%= @transaction.buyer.username %></p>
+      <p class="text-black font-bold"><%= t('.seller_username') %>: <%= @transaction.seller.username %></p>
+      <p class="text-black font-bold"><%= t('.quantity') %>: <%= @transaction.quantity %></p>
+      <p class="text-black font-bold"><%= t('.total') %>: <%= @transaction.total %> $</p>
+      <p class="text-black font-bold"><%= t('.delivery_address') %>: <%= @transaction.delivery_address %></p>
+      <p class="text-black font-bold"><%= t('.created_at') %>: <%= @transaction.format_created_at %></p>
+      <p class="text-black font-bold"><%= t('.receipt') %>:</p>
+      <% if @transaction.receipt.attached? %>
+        <%= image_tag @transaction.receipt, class: 'rounded-t-xl w-full lg:w-9/12 mx-auto h-2/4 border-b-2 border-gray-500' %>
+      <% else %>
+        <%= image_tag 'placeholder.jpg', class: 'rounded-t-xl w-full h-2/4' %>
+      <% end %>
+    </div>
+  </div>
+  <% if @transaction.seller? && @transaction.billing_status == 'pending' %>
+    <%= link_to t('.accept'), accept_transaction_path(@transaction), method: :put, class: 'w-1/2 mx-auto bg-teal-500 text-white font-bold rounded-xl p-2 mt-4' %>
+    <%= link_to t('.reject'), reject_transaction_path(@transaction), method: :put, class: 'w-1/2 mx-auto bg-red-500 text-white font-bold rounded-xl p-2 mt-4' %>
+  <% else %>
+    <div>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=someone@gmail.com&su=subject_here&body=body_here"
+        class="text-teal-500 font-bold" target="_blank">
+        <%= t('.contact_us') %>
+      </a>
+    </div>
+  <% end %>
+</div>

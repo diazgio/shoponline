@@ -127,6 +127,21 @@ es:
   transactions:
     index:
       title: 'Mis transacciones'
+    show:
+      title: 'Detalles de la compra'
+      buyer_username: 'Comprador'
+      seller_username: 'Vendedor'
+      delivery_address: 'Dirección de entrega'
+      product_title: 'Producto'
+      price_per_unit: 'Precio por unidad'
+      stock: 'Stock'
+      description: 'Descripción'
+      quantity: 'Cantidad'
+      total: 'Total'
+      billing_status: 'Estado'
+      created_at: 'Fecha de compra'
+      receipt: 'Recibo'
+      contact_us: 'Si algo paso con tu compra, ¡Contáctanos!'
     new:
       title: 'Nueva Compra'
     form:

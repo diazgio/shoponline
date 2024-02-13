@@ -2,7 +2,11 @@ class TransactionsController < ApplicationController
   before_action :set_transaction, only: %i[ show edit update destroy ]
 
   def index
-    @transactions = Transaction.where(user: Current.user).order(created_at: :desc)
+    @transactions = Transaction.where(buyer_id: Current.user).order(created_at: :desc)
+  end
+
+  def seller_index
+    @transactions = Transaction.where(seller_id: Current.user).order(created_at: :desc)
   end
 
   def new
@@ -20,7 +24,7 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
-        TransactionMailer.with(transaction: @transaction).create.deliver_later
+        TransactionMailer.with(transaction: @transaction).new_transaction.deliver_later
         format.html { redirect_to @transaction, notice: "Transaction was successfully created." }
         format.json { render :show, status: :created, location: @transaction }
       else

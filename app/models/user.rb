@@ -30,6 +30,14 @@ class User < ApplicationRecord
     end
   end
 
+  def is_seller?
+    self.products.any?
+  end
+
+  def is_buyer?
+    Transaction.where(buyer_id: self.id).any?
+  end
+
   private
 
   def downcase_attributes

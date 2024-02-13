@@ -26,11 +26,14 @@ es:
     not_found: 'No se ha encontrado'
   shared:
     header:
-      add: 'Añadir producto'
-      login: 'Acceso'
-      register: 'Registro'
-      logout: 'Salir'
-      favorites: 'Mis favoritos'
+      items:
+        add: 'Añadir'
+        login: 'Acceso'
+        register: 'Registro'
+        logout: 'Salir'
+        favorites: 'Mis favoritos'
+        my_purchases: 'Mis compras'
+        my_sales: 'Mis ventas'
   authentication:
     users:
       new:
@@ -114,19 +117,21 @@ es:
       subject: 'Bienvenido a Mi tienda'
       welcome_message: 'Hey %{username}, bienvenid@ a Mi Tienda. Esperemos que vendas un montón!'
   transaction_mailer:
-    new:
+    new_transaction:
       subject: 'Compra realizada con éxito, ahora se encuentra en revisión'
-      create_message: 'Hola %{username}, tu compra se realizó exitosamente, ahora está en revisión. Te avisaremos cuando el vendedor confirme la compra. ¡Gracias por usar MyShop!.
+      new_transaction_message: 'Hola %{buyer_username}, tu compra se realizó exitosamente, ahora está en revisión. Te avisaremos cuando el vendedor confirme la compra. ¡Gracias por usar MyShop!.
        Este es el contenido de tu compra:
-       Titulo del producto}
-       Cantidad: %{cantidad}
+       Producto: {product_title}
+       Cantidad: %{quantity}
        Total: %{total}
        Dirección: %{delivery_address}
        Vendedor: %{seller_username}
        Si tiene alguna pregunta, contáctenos en: myshop@shopiland.com'
   transactions:
     index:
-      title: 'Mis transacciones'
+      title: 'Mis Compras'
+    seller_index:
+      title: 'Mis ventas'
     show:
       title: 'Detalles de la compra'
       buyer_username: 'Comprador'

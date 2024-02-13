@@ -1,15 +1,11 @@
 class TransactionMailer < ApplicationMailer
-
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.transaction_mailer.create.subject
-  #
-  def create
+  def new_transaction
     @transaction = params[:transaction]
     @buyer = @transaction.buyer
-    @seller_username = @transaction.seller.username
-    @product = @transaction.product
+    @seller = @transaction.seller
+    @buyer_username = @buyer.username
+    @seller_username = @seller.username
+    @product_title = @transaction.product.title
     @quantity = @transaction.quantity
     @delivery_address = @transaction.delivery_address
     @total = @transaction.total

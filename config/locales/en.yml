@@ -26,11 +26,14 @@ en:
     not_found: 'Not found'
   shared:
     header:
-      add: 'Add product'
-      login: 'Login'
-      register: 'Register'
-      logout: 'Logout'
-      favorites: 'My favorites'
+      items:
+        add: 'Add product'
+        login: 'Login'
+        register: 'Register'
+        logout: 'Logout'
+        favorites: 'My favorites'
+        my_purchases: 'My purchases'
+        my_sales: 'My sales'
   authentication:
     users:
       new:
@@ -114,11 +117,11 @@ en:
       subject: 'Welcome to MyShop'
       welcome_message: 'Hey %{username}, welcome to MyShop. We hope you sell a lot!'
   transaction_mailer:
-    create:
+    new_transaction:
       subject: 'Purchase made it successfully, now is in review'
-      create_message: 'Hi %{username}, your purchase has been made it successfully, now is in review. We will notify you when the seller confirms the purchase. Thanks for using MyShop!.
+      new_transaction_message: 'Hi %{buyer_username}, your purchase has been made it successfully, now is in review. We will notify you when the seller confirms the purchase. Thanks for using MyShop!.
       This is the content of your purchase:
-      Product: %{title}
+      Product: %{product_title}
       Quantity: %{quantity}
       Total: %{total}
       Address: %{delivery_address}
@@ -126,7 +129,9 @@ en:
       If you have any question, please contact us at: myshop@shopiland.com'
   transactions:
     index:
-      title: 'My transactions'
+      title: 'My Purchases'
+    seller_index:
+      title: 'My Sales'
     show:
       title: 'Purchase details'
       buyer_username: 'Buyer'

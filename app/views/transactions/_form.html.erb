@@ -1,0 +1,50 @@
+<%= form_with(model: @transaction) do |form| %>
+  <% if @transaction.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+        <% @transaction.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :product_id, value: product_id %>
+  <%= form.hidden_field :seller_id, value: seller_id %>
+  <%= form.hidden_field :buyer_id, value: Current.user.id %>
+
+  <div>
+    <%= form.text_field :delivery_address,
+      placeholder: t(".address_placeholder"),
+      class: "rounded-2xl border-gray-200 mb-4 w-full"
+    %>
+  </div>
+
+  <div>
+    <%= form.number_field :quantity,
+      placeholder: t(".quantity_placeholder"),
+      class: "rounded-2xl border-gray-200 mb-4 w-full"
+    %>
+  </div>
+
+  <div>
+    <p class="font-bold mb-2"><%= t('.deposit') %></p>
+    <p class="w-max mx-auto p-1 border-2 border-gray-500 border-double my-2"><%= t('.bank_account') %></p>
+  </div>
+
+  <div>
+    <p class="font-bold mb-2"><%= t('.app_transfer') %></p>
+    <%= image_tag 'qr_yape.jpeg', class: 'rounded-t-xl w-1/2 h-2/4 mx-auto' %>
+  </div>
+
+  <div class="rounded-2xl border-gray-200 mb-4 w-full border-[1px] p-2 text-gray-500">
+    <%= form.label :receipt, t('.receipt') %>
+    <%= form.file_field :receipt %>
+  </div>
+
+  <div>
+    <%= form.submit t('.submit'), class: "px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-2xl cursor-pointer shadow-sm" %>
+  </div>
+<% end %>

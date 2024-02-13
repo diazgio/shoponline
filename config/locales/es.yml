@@ -72,13 +72,14 @@ es:
     show:
       edit: 'Editar'
       delete: 'Eliminar'
-      view_more_products: 'Ver más productos de %{username}'
+      view_more_products: 'Ver productos de %{username}'
     product:
       price: 'Precio'
       stock: 'Stock'
     product_details:
       price: 'Precio'
       stock: 'Stock'
+      buy: 'Comprar'
     create:
       created: 'Tu producto se ha creado correctamente'
     update:
@@ -112,3 +113,27 @@ es:
     welcome:
       subject: 'Bienvenido a Mi tienda'
       welcome_message: 'Hey %{username}, bienvenid@ a Mi Tienda. Esperemos que vendas un montón!'
+  transaction_mailer:
+    new:
+      subject: 'Compra realizada con éxito, ahora se encuentra en revisión'
+      create_message: 'Hola %{username}, tu compra se realizó exitosamente, ahora está en revisión. Te avisaremos cuando el vendedor confirme la compra. ¡Gracias por usar MyShop!.
+       Este es el contenido de tu compra:
+       Titulo del producto}
+       Cantidad: %{cantidad}
+       Total: %{total}
+       Dirección: %{delivery_address}
+       Vendedor: %{seller_username}
+       Si tiene alguna pregunta, contáctenos en: myshop@shopiland.com'
+  transactions:
+    index:
+      title: 'Mis transacciones'
+    new:
+      title: 'Nueva Compra'
+    form:
+      address_placeholder: '¿Dónde quieres recibir el producto?'
+      quantity_placeholder: 'Cantidad de productos'
+      receipt: 'Carga el recibo'
+      deposit: 'Depositar en la siguiente cuenta'
+      bank_account: '555-55555-555555-55555'
+      app_transfer: 'Transferencia a la siguiente cuenta, yape o plin'
+      submit: 'Comprar!'

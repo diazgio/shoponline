@@ -1,0 +1,36 @@
+<h1><%= t('.title')%></h1>
+
+<div class="flex flex-col">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-left text-sm font-light">
+          <thead class="border-b font-medium dark:border-neutral-500">
+            <tr>
+              <th scope="col" class="px-6 py-4">#</th>
+              <th scope="col" class="px-6 py-4">Username</th>
+              <th scope="col" class="px-6 py-4">Product Title</th>
+              <th scope="col" class="px-6 py-4">Price</th>
+              <th scope="col" class="px-6 py-4">Quantity</th>
+              <th scope="col" class="px-6 py-4">Edit</th>
+              <th scope="col" class="px-6 py-4">Show</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @transactions.each do |transaction| %>
+              <tr class="border-b dark:border-neutral-500">
+                <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
+                <td class="whitespace-nowrap px-6 py-4"><%= transaction.user.username %></td>
+                <td class="whitespace-nowrap px-6 py-4"><%= transaction.product.title %></td>
+                <td class="whitespace-nowrap px-6 py-4"><%= transaction.product.price %></td>
+                <td class="whitespace-nowrap px-6 py-4"><%= transaction.quantity %></td>
+                <td class="whitespace-nowrap px-6 py-4"><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+                <td class="whitespace-nowrap px-6 py-4"><%= link_to 'Show', transaction_path(transaction) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

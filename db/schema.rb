@@ -74,14 +74,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_11_224800) do
 
   create_table "transactions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "product_id", null: false
-    t.uuid "user_id", null: false
+    t.uuid "seller_id", null: false
+    t.uuid "buyer_id", null: false
     t.text "delivery_address", null: false
     t.integer "quantity", null: false
     t.integer "billing_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_transactions_on_buyer_id"
     t.index ["product_id"], name: "index_transactions_on_product_id"
-    t.index ["user_id"], name: "index_transactions_on_user_id"
+    t.index ["seller_id"], name: "index_transactions_on_seller_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -103,5 +105,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_11_224800) do
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
   add_foreign_key "transactions", "products"
-  add_foreign_key "transactions", "users"
+  add_foreign_key "transactions", "users", column: "buyer_id"
+  add_foreign_key "transactions", "users", column: "seller_id"
 end

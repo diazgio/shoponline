@@ -72,13 +72,14 @@ en:
     show:
       edit: 'Edit'
       delete: 'Delete'
-      view_more_products: 'View more products by %{username}'
+      view_more_products: 'View products by %{username}'
     product:
       price: 'Price'
       stock: 'Stock'
     product_details:
       price: 'Price'
       stock: 'Stock'
+      buy: 'Buy'
     create:
       created: 'Your product has been successfully created'
     update:
@@ -104,8 +105,7 @@ en:
       title: 'New category'
       back: 'Back to categories'
     form:
-      name: 'Category name'
-      
+      name: 'Category name'   
   favorites:
     index:
       title: 'My favorites'
@@ -113,3 +113,27 @@ en:
     welcome:
       subject: 'Welcome to MyShop'
       welcome_message: 'Hey %{username}, welcome to MyShop. We hope you sell a lot!'
+  transaction_mailer:
+    create:
+      subject: 'Purchase made it successfully, now is in review'
+      create_message: 'Hi %{username}, your purchase has been made it successfully, now is in review. We will notify you when the seller confirms the purchase. Thanks for using MyShop!.
+      This is the content of your purchase:
+      Product: %{title}
+      Quantity: %{quantity}
+      Total: %{total}
+      Address: %{delivery_address}
+      Seller: %{seller_username}
+      If you have any question, please contact us at: myshop@shopiland.com'
+  transactions:
+    index:
+      title: 'My transactions'
+    new:
+      title: 'New Purchase'
+    form:
+      address_placeholder: 'Where do you want to receive the product?'
+      quantity_placeholder: 'Quantity of products'
+      receipt: 'Upload the receipt'
+      deposit: 'Deposit in the following account'
+      bank_account: '555-55555-555555-55555'
+      app_transfer: 'Transfer with the app of your preference, yape or plin'
+      submit: 'Buy!'

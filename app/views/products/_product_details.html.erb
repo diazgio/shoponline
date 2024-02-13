@@ -10,10 +10,12 @@
     <h1 class='text-xl text-teal-600 font-black'><%= product.title %></h1>
     <%= render partial: 'favorite', locals: { product: product } %>
   </div>
-  <div class="flex gap-3 ml-3">
+  <div class="flex gap-3 items-center ml-3 mb-3">
     <p class='text-black font-black'><%= t('.price') %> <%= product.price %> $</p>
     <p>|</p>
     <p class='text-black font-black'><%= t('.stock') %> <%= product.stock %> Unidades</p>
+    <p>|</p>
+    <%= link_to t('.buy'), new_transaction_path(product_id: product.id, seller_id: product.user.id), data: { turbo_frame: "modal" }, class: 'bg-teal-500 text-white p-2 rounded-xl' %>
   </div>
 
   <div class="mx-3 w-11/12 h-48 overflow-y-scroll rounded-xl bg-gray-200 p-2">
